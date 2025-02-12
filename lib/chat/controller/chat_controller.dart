@@ -1,12 +1,14 @@
 import 'package:chat_bot/chat/model/messages_model.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:intl/intl.dart';
 
 class ChatController extends GetxController {
   var msgController = TextEditingController();
-  String apiKey = "AIzaSyB6B2uKygZgOn7hOu3x5c2dIXJPKOEx-Zs";
+  final String apiKey = dotenv.env['GOOGLE_API_KEY'] ?? '';
+
   var messagesList = <MessagesModel>[].obs;
 
 
